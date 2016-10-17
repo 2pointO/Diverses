@@ -1,25 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace StressTest
 {
-    public enum Material
+    public class StressTestType:INotifyPropertyChanged
     {
-            StainlessSteel, Aluminum, ReinforcedConcrete, Composite, Titanium
-    }
-    public enum CrossSection
-    {
-            IBeam, Box, ZShaped, CShaped
-    }
-    public enum TestResult
-    {
-            Pass, Failed
-    }
-    class StressTestType
-    {
-        
+        private Material selectedMaterial;
+        private TestResult selectedResult;
+        private CrossSection seletedCrossSection;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public Array Material
+        {
+            get { return Enum.GetValues(typeof(Material)); }
+        }
+
+        public Array TestResult
+        {
+            get { return Enum.GetValues(typeof(TestResult)); }
+        }
+
+        public Array CrossSection
+        {
+            get { return Enum.GetValues(typeof(CrossSection)); }
+        }
+
+        public Material SelectedMaterial
+        {
+            get { return selectedMaterial; }
+            set
+            {
+                selectedMaterial = value;
+                OnChange("SelectedMaterial");
+                
+            }
+        }
+
+        public TestResult SelectedResult
+        {
+            get { return selectedResult; }
+            set
+            {
+                selectedResult = value;
+                OnChange("SelectedResult");
+
+            }
+        }
+
+        public CrossSection SeletedCrossSection
+        {
+            get { return seletedCrossSection; }
+            set
+            {
+                seletedCrossSection = value;
+                OnChange("SeletedCrossSection");
+
+            }
+        }
+
+        public void OnChange(string propname)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propname));
+            }
+        }
+
+       
+
+
+
     }
 }

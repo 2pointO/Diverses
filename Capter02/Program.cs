@@ -7,6 +7,19 @@ using System.Threading.Tasks;
 
 namespace Capter02
 {
+   /* public class Residence
+    {
+
+        public int numberOfBedrooms;
+        public bool hasGarage;
+        public bool hasGarden;
+        public Residence(int numberOfBedrooms)
+        {
+
+            this.numberOfBedrooms = numberOfBedrooms;
+        }
+
+    }*/
     class Program
     {
         static void Main(string[] args)
@@ -33,8 +46,44 @@ namespace Capter02
             }
             Console.ReadLine();*/
 
+            //------Structure Test-------
+            /*
+            int x = 99;
+            System.Int32 y = x + 1;
+
+            Console.WriteLine(y.ToString());
+            Console.ReadLine();*/
+
+
+            /*Residence myHouse = new Residence(2);
+            Residence anotherHouse = new Residence(2);
+
+            if (myHouse == anotherHouse)
+            {
+                Console.WriteLine("They are the same house");
+            }
+            else
+            {
+                Console.WriteLine("They are different houses");
+            }
+            Console.ReadLine();*/
+
+            //-------Parameter über die Referenz dauerhaft ändern , es wird keine Kopie für die Methode verwendet sondern ein Pointer zum Original
+            /*
+            string myString = "Original value";
+            ChangeInput(ref myString);
+            Console.WriteLine(myString);
+            Console.ReadLine();*/
+
 
         }
+
+
+        /*
+        static void ChangeInput(ref string input)
+        {
+            input = "Changed value";
+        }*/
 
         private static void MyTest(int one, int two, out int data)
         {

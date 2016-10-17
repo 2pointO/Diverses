@@ -4,10 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StressTest"
+       
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="400
+        ">
+    <Window.DataContext>
+        <local:StressTestType/>
+    </Window.DataContext>
+
     <Grid>
-        <Button x:Name="button" Content="Start" HorizontalAlignment="Left" Margin="215,200,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button" Content="Start" HorizontalAlignment="Left" Margin="134,248,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="108,59,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding SelectedMaterial}" ItemsSource="{Binding Material}"/>
+        <Label x:Name="label" Content="Material" HorizontalAlignment="Left" Margin="47,55,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="108,97,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding CrossSection}" SelectedItem="{Binding SeletedCrossSection}"/>
+        <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="108,132,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding TestResult}" SelectedItem="{Binding SelectedResult}"/>
+        <Label x:Name="label1" Content="CrossSection" HorizontalAlignment="Left" Margin="25,93,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="TestResult" HorizontalAlignment="Left" Margin="37,136,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="[String]" Margin="47,186,117,107"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="228" Height="26" VerticalAlignment="Center"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="170" Margin="297,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" TextChanged="textBox_TextChanged"/>
+        <Label x:Name="label4" Content="History (last 10)" HorizontalAlignment="Left" Margin="280,28,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
